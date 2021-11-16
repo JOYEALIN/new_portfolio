@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 메타 -->
+    <!-- 파비콘 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.min.css" integrity="sha512-BYn1UZcpzkgi4cForzUzU/FqsewIcfXDYAU0tThFfehimrUrp5hOtcWPI1Wpli8rKopUIhaDCbxXPttBDTISgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Jo yea lin portfolio</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        html,body{font-family: 'Noto Sans KR', sans-serif;}
+        html {scroll-behavior: smooth;}
+        .sec-tit{font-size:20px;font-weight:900;color:#333;padding:20px;}
+
+        /* header-style */
+        header{padding:20px;background-color:#ffbf69;}
+        .logo span{font-size:30px;font-weight:bold;color:#fff;text-align:left;display:flex;}
+        .logo{position:relative;}
+        .nav{padding:20px 0 30px;display:none;}
+        .nav ul{display:flex;flex-flow:row wrap;justify-content:space-between;}
+        
+        .nav a{color:#fff;font-size:18px;}
+        .nav a:hover{color:#666;}
+        .e-mail{position:absolute;top:18px;right:0;padding-right:20px;display:flex;flex-flow:row nowrap;justify-content:flex-end;}
+        .e-mail span,.e-mail a{font-size:14px;font-weight:bold;color:#fff;}
+        .btn-nav{position:absolute;top:30px;right:0;padding-right:20px;color:#fff;font-weight:900;font-size:30px;cursor:pointer;}
+
+        /* intro-style */
+        .intro-container{display:flex;flex-flow:row nowrap;justify-content:space-around;align-items:center;padding:20px;height:800px;background-color:#ffbf69;color:#fff;text-align:center;}
+        .intro-txt h2{font-size:30px;font-weight:bold;margin-bottom:30px;}
+        .intro-txt p{font-size:20px;font-weight:500;}
+        .scr-mouse{text-align: center;font-size: 24px;color: #fff;}
+        .scr-mouse .fa-mouse {opacity: 0.1;animation: mouse-scroll 2s infinite;}
+        @keyframes mouse-scroll{
+                0%{
+                    opacity:0.1;
+                    transform:translateY(0);
+                }
+                50%{
+                    opacity:0.5;
+                    transform:translateY(40px);
+                }
+                100%{
+                    opacity:0.1;
+                    transform:translateY(0);
+                }
+            }
+        /* about-style */
+        
+        .about h2{padding:20px;}
+        .about-container .contents{padding:20px;display:flex;flex-flow:row wrap;justify-content: space-around;align-items: center;}
+        .about .img-box{margin-left:30px;width:200px;}
+        .right-txt{width:250px;}
+        .center-txt,.right-txt{line-height:25px;}
+        .about-a{line-height:30px;}
+        .right-txt p,.center-txt p{color:yellowgreen;font-weight:600;margin-bottom:10px;margin-top:10px;}
+        .about-e,.about-f{margin-top:10px;}
+        span{color:yellowgreen;}
+
+        /* .center-txt,.right-txt{display:flex;flex-flow:row nowrap;justify-content:space-between;align-items: center;} */
+        
+       
+
+        /* skill style */
+
+        .skill-container{padding:20px;display:flex;flex-flow:row;justify-content: center;}
+        .skill .contents{display:flex;flex-flow:row nowrap;justify-content:flex-start;align-items: center;}
+        .ps,.ai,.pr{margin-right:10px;}
+        .css3,.js,.html{margin-right:10px;}
+        .css3{margin-left:10px;}
+        
+        
+        /* portfolio style */
+        .txt-box h3{text-align:center;font-size:17px;font-weight:700;}
+        .txt-box p{text-align:center;font-size:15px;color:#666;}
+        .sub-box{display:flex;flex-flow:row wrap;justify-content:center;align-items:center;margin:0 auto;}
+        .btn-work,.btn-site{border:3px solid #ffbf69;height:50px;text-align:center;padding-top:10px;border-radius:30px;padding:10px;margin-top:10px;margin-bottom:10px;}
+        .btn-work{margin-right:5px;}
+
+
+
+        /* design slider style */
+        .design-container{position: relative;height: 100%;}
+
+        .design-slider{margin: 0;padding: 0;}
+        .swiper{width: 70%;height: 50%;}
+
+        .swiper-slide {padding:10px;}
+
+        .design .img-box img{border-radius:20px;}
+        .sec-design .img-box img{transition:0.3s;}
+        .sec-design .img-box:hover img{transform:scale(1.1);opacity:0.8;}
+        
+        .window{display:none;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.6);left:0;top:0;z-index:999999;}
+        .window-content{display:none;position:fixed;z-index:999999;width:auto;height:80%;background-color:#fff;left:50%;transform:translateX(-50%);top:5%;overflow-y:scroll;}
+      
+
+        /* contact style */
+
+        .footer{background-color: #ffbf69;height:300px;}
+        .footer-tit{padding:30px;font-size:30px;font-weight:700;color:#fff;text-align:center;}
+        address{font-size:20px;color:#fff;text-align:center;width:100%;overflow: hidden;}
+        
+        
+        
+      
+        
+        
+    
+        
+         
+        
+        @media(min-width:1024px){
+            /* header style */
+            .header{display:flex;flex-flow:row wrap;justify-content:space-between;width:100%;position:fixed;background-color: rgb(240, 230, 140,0.5);z-index:999999;}
+            .about .img-box{z-index:99998;}
+            .nav{display:block !important;position:absolute;top:30%;right:0;}
+            .nav ul li{margin-right:20px;text-align:right;}
+            .logo span,.e-mail span, .e-mail a,.nav li a{color:#333;}
+            .btn-nav{display:none;}
+
+            /* skill-style */
+           
+            
+        }
+
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <header class="header">
+            <div class="container header-container">
+                <div class="contents">
+                    <h1 class="logo">
+                        <a href="./index.html"><span>PortFolio</span></a>
+                    </h1>
+                    <nav class="nav" id="nav">
+                        <ul>
+                            <li><a href="#home" class="smooth">Home</a></li>
+                            <li><a href="#about" class="smooth">About</a></li>
+                            <li><a href="#skill" class="smooth">Skill</a></li>
+                            <li><a href="#portfolio" class="smooth">Web PortFolio</a></li>
+                            <li><a href="#design" class="smooth">Design</a></li>
+                            <li><a href="#contact" class="smooth">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="e-mail">
+                        <span>E-mail : </span><a href="mailto:fls980@naver.com">fls980@naver.com</a>
+                    </div>
+                    <div class="btn-nav" id="btn-nav">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="section intro" id="home">
+            <div class="container intro-container">
+                <div class="contents">
+                    <div data-aos="fade-up"data-aos-duration="3000"class="intro-txt">
+                        <h2>안녕하세요:)</h2>           
+                        <p>
+                            동글동글
+                            <br>
+                            웹디자이너 
+                            <br>
+                            조예린입니다.
+                        </p>
+                        <div class="scr-mouse">
+                            <i class="fas fa-mouse">
+                            </i>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="section about" id="about">
+            <h2 class="sec-tit">About me</h2>
+            <div class="container about-container">
+                <div class="contents"> 
+                    <div data-aos="fade-right" data-aos-duration="3000" class="img-box">
+                        <picture>
+                            <img src="./images/about-me-img.png" alt="내 얼굴">
+                        </picture>
+                    </div>
+                    <ul  data-aos="fade-up" data-aos-duration="2000" class="about-a">
+                        <li>이름 : 조예린</li>
+                        <li>생년월일 : 1998.09.03</li>
+                        <li>주소 : 인천광역시 서구 가정동</li>
+                        <li>이메일 : fls980@naver.com</li>
+                        <li>연락처 : 010-3233-5526</li>
+                    </ul>
+                            <div data-aos="fade-up" data-aos-duration="3000" class="center-txt">
+                                
+                                <ul class="about-b">
+                                    <p>경력사항</p>
+                                    <li>2020.2.28 ~ 2021.2.28</li>
+                                </ul>
+                                <ul class="about-c">
+                                    <p>자격증</p>
+                                    <li>GTQ Photoshop 1급</li>
+                                    <li>e-Test Professionals 파워포인트 1급</li>
+                                    <li>유치원 정교사 자격증</li>
+                                    <li>보육교사 자격증</li>
+                                    <li>종이 일러스트/풍선아트 자격증</li>
+                                    <li>레크레이션 강사 자격증</li>
+                                </ul>
+                            </div>
+                            <div data-aos="fade-up" data-aos-duration="3000"  class="right-txt">
+                                <ul class="about-d">
+                                    <p>학력</p>
+                                    <li>인천연희전문학교 수료</li>
+                                    <li>대전 대덕대학교 유아교육과 졸업</li>
+                                    <li>인천 해원고등학교 졸업</li>
+                                </ul>
+                                <ul class="about-e">
+                                    <p>성격</p>
+                                    <li>둥글둥글한 성격</li>
+                                    <li>동물과　아기를 좋아하는 성격</li>
+                                    <li>빨리 적응하는 성격</li>
+                                    <li>급한 성격이지만 꼼꼼한 성격</li>
+                                    <li>istp</li>
+                                </ul>
+                                <ul class="about-f">
+                                    <p>취미</p>
+                                    <li>음악감상</li>
+                                    <li>만들기/조립하기</li>
+                                </ul>
+                            </div>
+                </div>
+            </div>
+        </section>
+        <section class="skill" id="skill">
+            <h2 class="sec-tit">Skill</h2>
+           
+            <div class="container skill-container">
+                <div class="contents" data-aos="flip-down" data-aos-duration="1000" >
+                        <article class="ps">
+                            <div class="img-box">
+                                <img src="./images/ps.png" alt="포토샵이미지">
+                            </div>
+                            </article>
+                            <article class="ai">
+                                <div class="img-box">
+                                    <img src="./images/ai.png" alt="일러스트이미지">
+                                </div>
+                            </article>
+                            <article class="pr">
+                                <div class="img-box">
+                                    <img src="./images/pr.png" alt="프로이미지">
+                                </div>
+                            </article>
+                            <article class="ae">
+                                <div class="img-box">
+                                    <img src="./images/ae.png" alt="에펙이미지">
+                                </div>
+                            </article>
+                            <article class="css3">
+                                <div class="img-box">
+                                    <img src="./images/css3수정.png" alt="css3이미지">
+                                </div>
+                            </article>
+                            <article class="js">
+                                <div class="img-box">
+                                    <img src="./images/js수정.png" alt="js이미지">
+                                </div>
+                            </article>
+                            <article class="html">
+                                <div class="img-box">
+                                    <img src="./images/html수정.png" alt="html이미지">
+                                </div>
+                            </article>
+                            <article class="jquery">
+                                <div class="img-box">
+                                    <img src="./images/jquery수정.png" alt="jq이미지">
+                                </div>
+                            </article>
+                </div>
+
+            </div>
+        </section>
+        <section class="portfolio" id="portfolio">
+            <div class="container portfolio-container">
+                <div class="contents"></div>
+                <h2 class="sec-tit">Web PortFolio</h2>
+                    <article  class="megabox">
+                        
+                        <div data-aos="fade-right" data-aos-duration="2000" class="img-box"><img src="./images/megabox-mok.png" alt="메가박스"></div>
+                        <div class="txt-box">
+                            <h3 class="pj-tit">#MEGABOX</h3>
+                            <p>MEGABOX 반응형 리뉴얼 웹사이트</p>
+                        </div>
+                        <div class="sub-box">
+                            <p class="btn-work" id="btn-megabox">
+                                <a href="https://joyealin.github.io/portfolio_megabox/" rel="modal:open">작업과정 바로가기</a>                                
+                            </p>
+                            <p class="btn-site"><a href=" https://joyealin.github.io/portfolio_megabox/" target="_blank">사이트바로가기</a></p>
+                        </div>
+                    </article>
+                    <article  class="hollys">
+                        <div data-aos="fade-left" data-aos-duration="2000" class="img-box"><img src="./images/hollys-mok.png" alt="할리스"></div>
+                        <div class="txt-box">
+                            <h3 class="pj-tit">#HOLLYS</h3>
+                            <p>HOLLYS 반응형 리뉴얼 웹사이트</p>
+                        </div>
+                        <div class="sub-box">
+                            <p class="btn-work"  id="btn-hollys">
+                                <a href="#work" rel="modal:open">작업과정 바로가기</a>
+                            </p>
+                            <p class="btn-site"><a href="https://joyealin.github.io/portfolio_hollys/" target="_blank">사이트바로가기</a></p>
+                        </div>
+                    </article>
+                    <article  class="hansol">
+                        <div data-aos="fade-right" data-aos-duration="2000" class="img-box"><img src="./images/hansole-mok2.png" alt="한솔"></div>
+                        <div class="txt-box">
+                            <h3 class="pj-tit">#Hansol</h3>
+                            <P>Hansol 반응형 리뉴얼 웹사이트</P>
+                        </div>
+                        <div class="sub-box">
+                            <p class="btn-work"  id="btn-hollys">
+                                <a href="#work" rel="modal:open">작업과정 바로가기</a>
+                            </p>
+                            <p class="btn-site"><a href="https://joyealin.github.io/portfollio_hansol/" target="_blank">사이트바로가기</a></p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="design" id="design">
+            <div class="container design-container">
+                <h2 class="sec-tit">Design</h2>
+                <div class="sec-design design-slider">
+                    <span>#click detail</span>
+                   
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="design img-box" id="img-box01" >
+                                        <img src="./images/renewal-kodak.png" alt="" id="main" > </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href="">
+                                        <img src="./images/kodak-main-banner01.png" alt=""> </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href="">
+                                        <img src="./images/mac-reneal.png" alt=""> </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/kodak-main-banner02.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/kodak-main-banner03.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/kodak-main-banner04.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href="#work"><img src="./images/poster-img.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/sta-poster.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/mac-poster02.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/mac-poster03.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/mac-banner01.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="design img-box">
+                                    <a href=""><img src="./images/mac-banner02.png" alt="코닥베너"></a>
+                                </div>
+                            </div>
+                        </div>
+                            <span>slide-next</span>
+                        </div>
+                    </div>
+                  
+                </div>  
+            </div>
+        </section>
+    <div class="window-modal">
+        <div class="window"></div>
+        <div class="window-content">
+            <img src="./images/mainbanner01.jpg" alt="modal-detail">
+        </div>
+    </div>
+
+        <section class="footer" id="contact">
+            <div class="container footer-container">
+                <div class="footer-tit">
+                    Contact me
+                </div>
+                <address>
+                    <p class="phone">Phone : 010-3233-5526</p>
+                    <p class="footer-e-mail">E-mail : fls980@naver.com</p>
+                </address>
+            </div>
+        </section>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.min.js" integrity="sha512-XHnWZWvy5TkCnPgLU7XsWhGAks1JQ3uFutVxRSH0Z4+djsGkCkxVsYu+JgfrDicvbCmjfUf1HeMWYUvUYKgjzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- 프로그레스 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery-circle-progress/dist/circle-progress.js"></script>
+    <script>
+        
+        AOS.init();
+
+        $('#btn-nav').click(function(){
+            $('#nav').slideToggle(300);
+        });
+            
+        const swiper = new Swiper('.swiper', {
+            slidesPerView:4,
+            grid: {
+                rows: 1, 
+            },
+            spceBetween:30,
+            paginaiton: {
+                el:".swiper-pagination",
+                string:'span',
+                type:'bullets',
+            },
+            
+        });
+
+        $("#fade").modal({
+            fadeDuration: 100
+        });
+
+
+        // 모달창
+        $('img-box01>img').click(function(){
+            $('.window-modal').css('display','block');
+        })
+
+
+         
+
+
+            
+           
+    </script>
+</body>
+</html>
