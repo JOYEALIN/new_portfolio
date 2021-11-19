@@ -16,10 +16,26 @@
     <title>Jo yea lin portfolio</title>
     <style>
         
+        .sec-design.design-slider{position: relative;}
+        .sec-design.design-slider span{ position: absolute;
+            left: 400px;
+            top: 200px;
+            z-index: 2; 
+            animation:detScale 3s infinite forwards; 
+            color:transparent;         
+        }
+        @keyframes detScale {
+            0%{transform:scale(1);color:yellowgreen;}            
+            10%{transform:scale(1.5)}
+            20%{transform:scale(1)}
+            30%{transform:scale(1.5)}
+            40%{transform:scale(1);color:yellowgreen;}
+            50%{color:transparent;}
+        }
+        
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
         html,body{font-family: 'Noto Sans KR', sans-serif;}
         html {scroll-behavior: smooth;}
-        
         .sec-tit{font-size:25px;font-weight:900;color:#333;padding:30px;}
         h2{margin-left:10%;}
 
@@ -58,7 +74,7 @@
                 }
             }
         /* about-style */
-       
+        .about{margin-top:100px;margin-bottom:100px;}
         .about h2:after{content:'';display:block;width:30%;height:5px;background-color: #ffbf69;}
         .about h2{padding:20px;}
         .about-container .contents{padding:20px;display:flex;flex-flow:row wrap;justify-content: space-around;align-items: center;}
@@ -101,126 +117,15 @@
 
 
         /* design slider style */
-        .sec-design.design-slider span i{transform:rotate(-97deg);}
+        
         .design h2:after{content:'';display:block;width:30%;height:5px;background-color: #ffbf69;margin-bottom:90px;}
         .sec-design .sub-txt span{display:flex;flex-flow:row wrap;justify-content:flex-end;align-items:center;padding-bottom:20px;padding-right:20%;color:#74c69d;font-weight:500;}
         .sec-design .sub-txt02 span{display:flex;flex-flow:row wrap;justify-content:flex-end;align-items:center;padding-bottom:20px;color:#74c69d;font-weight:500;padding-right:10%;}  
         .design-container{position: relative;height: 100%;}
 
-        .design{margin: 0;padding: 0;}
-        
-        /* 별 애니메이션 */
-        .star{position:relative;color:blue;}
-        .star1 {
-        position:absolute;
-        top: 70px;
-        left: 90px;
-        animation: star-one 1.2s infinite;
-        }
-            
-        .star2 {
-        position:absolute;
-        top: 50px;
-        right: 150px;
-        animation: star-two 1.7s infinite;
-        }
-        .star6 {
-        position:absolute;
-        top:300px;
-        left:110px;
-        animation: star-six 1.7s infinite;
-        }
-            
-        .star3 {
-        position:absolute;
-        top: 180px;
-        left: 205px;
-        animation: star-three 1.5s infinite;
-        }
-            
-        .star4 {
-        position:absolute;
-        top: 120px;
-        right: 40px;
-        font-size: 5px;
-        animation: star-five 1.9s infinite;
-        }
+        .design-slider{margin: 0;padding: 0;}
+        /* .swiper{width: 70%;height:50%;} */
 
-        .star5 {
-        position:absolute;
-        top: 200px;
-        right: 90px;
-        font-size: 5px;
-        animation: star-five 2s infinite;
-        }
-
-        @keyframes star-one {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-            
-        @keyframes star-two {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-            
-        @keyframes star-three {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-            
-        @keyframes star-four {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-
-        @keyframes star-five {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-        @keyframes star-six {
-        0%, 100% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        }
-
-    /* .swiper{width: 70%;height:50%;} */
-        .swiper-pagination{height:9px;}
         .swiper-slide {padding:20px;}
         .swiper-pagination-bullet{background-color: rgb(204, 150, 0);}
 
@@ -458,7 +363,7 @@
                         </div>
                     </article>
                     <article  class="hollys">
-                        <div data-aos="fade-left" data-aos-duration="1000" class="img-box"><img src="./images/hollys-mok.png" alt="할리스"></div>
+                        <div data-aos="fade-left" data-aos-duration="2000" class="img-box"><img src="./images/hollys-mok.png" alt="할리스"></div>
                         <div class="txt-box">
                             <h3 class="pj-tit">#HOLLYS</h3>
                             <p>HOLLYS 반응형 리뉴얼 웹사이트</p>
@@ -490,17 +395,9 @@
             <div class="container design-container">
                 <h2 class="sec-tit">Design</h2>
                 <div class="sec-design design-slider">
-                    <div data-aos="fade-up"data-aos-anchor-placement="top-bottom" data-aos-duration="1000" class="sub-txt">
-                        <span><i class="fas fa-mouse-pointer"></i>&nbsp;click detail</span>
-                    </div>
-                    <div class="star">
-                        <i class="fas fa-asterisk star1"></i>
-                        <i class="fas fa-asterisk star2"></i>
-                        <i class="fas fa-asterisk star3"></i>
-                        <i class="fas fa-asterisk star4"></i>
-                        <i class="fas fa-asterisk star5"></i>
-                        <i class="fas fa-asterisk star6"></i>
-                      </div>
+                    
+                    <span><i class="fas fa-mouse-pointer"></i>&nbsp;click detail</span>
+                   
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -537,45 +434,45 @@
                             
                            
                         </div>
-                        <div class="swiper-pagination"></div> 
-                        
-                        
-                        
-                    </div>
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box07">
-                                    <img src="./images/poster-img.png" alt="철없는 딸기 포스터">
-                                </div>
+                        <div class="swiper-pagination"></div>  
+                            <div class="sub-txt02">
+                                <span>more&nbsp;<i class="fas fa-caret-right"></i></span>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box08">
-                                    <img src="./images/sta-poster.png" alt="스타벅스 포스터">
+                        </div>
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box07">
+                                        <img src="./images/poster-img.png" alt="철없는 딸기 포스터">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box09">
-                                    <img src="./images/mac-poster02.png" alt="mac banner">
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box08">
+                                        <img src="./images/sta-poster.png" alt="스타벅스 포스터">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box10">
-                                    <img src="./images/mac-poster03.png" alt="mac banner">
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box09">
+                                        <img src="./images/mac-poster02.png" alt="mac banner">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box11">
-                                    <img src="./images/mac-banner01.png" alt="mac banner">
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box10">
+                                        <img src="./images/mac-poster03.png" alt="mac banner">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="design img-box" id="img-box12">
-                                    <img src="./images/mac-banner02.png" alt="mac banner">
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box11">
+                                        <img src="./images/mac-banner01.png" alt="mac banner">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="design img-box" id="img-box12">
+                                        <img src="./images/mac-banner02.png" alt="mac banner">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-pagination"></div> 
                     </div>
                   
                 </div>  
@@ -749,10 +646,10 @@
         // console.log($('.about').offset().top);
         $(document).scroll(function(){
             // console.log($(document).scrollTop())
-            if($(document).scrollTop()>=$('.about').offset().top){
+            if($(document).scrollTop()>=$('.skill').offset().top){
                 $('.header').css('background-color','white');
             }else if($(document).scrollTop()>=$('.about').offset().top){
-                $('.header').css('background-color','#yellowgreen');
+                $('.header').css('background-color','yellow');
             }
 
         })
