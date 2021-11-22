@@ -40,7 +40,29 @@
         /* intro-style */
         .intro-container{display:flex;flex-flow:row nowrap;justify-content:space-around;align-items:center;padding:20px;height:800px;background-color:#ffbf69;color:#fff;text-align:center;}
         .intro-txt h2{margin-left:0;font-size:50px;font-weight:bold;margin-bottom:30px;}
-        .intro-txt p{font-size:20px;font-weight:500;}
+        .intro-txt p{font-size:30px;font-weight:500;}
+        .intro span{font-size: 2em;font-weight:700;color:yellow;}
+        
+
+
+        /* 통통애니메이션 */
+        @keyframes anime_textup{ 0% { top: 0; } 20% { top: -0.2rem; } 40% { top: 0 } 60% { top: 0 } 80% { top: 0 } 100% { top: 0 } }
+        .intro-txt span{position: relative;animation: anime_textup 1.5s infinite;}
+        .intro-txt span:nth-of-type(1){
+        animation-delay: .1s;
+        }
+        .intro-txt span:nth-of-type(2) {
+            animation-delay: .2s;
+        }
+        .intro-txt span:nth-of-type(3) {
+            animation-delay: .3s;
+        }
+        .intro-txt span:nth-of-type(4) {
+            animation-delay: .4s;
+        }
+
+
+        /* 마우스 애니메이션 */
         .scr-mouse{text-align: center;font-size: 24px;color: #fff;}
         .scr-mouse .fa-mouse {opacity: 0.1;animation: mouse-scroll 2s infinite;}
         @keyframes mouse-scroll{
@@ -251,9 +273,9 @@
         .footer{position:relative;background-color: #ffbf69;height:300px;height:500px;margin-top:150px;}
         .footer-tit{padding:30px;font-size:30px;font-weight:700;color:#fff;text-align:center;}
         address{font-size:20px;color:#fff;text-align:center;width:100%;overflow: hidden;}
-        .footer .img-box{width:220px;position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);}
+        .footer .img-box{width:220px;position:absolute;top:70%;left:50%;transform:translate(-50%,-50%);}
         
-   
+        
       
         
         
@@ -322,16 +344,21 @@
         </header>
         <section class="section intro" id="home">
             <div class="container intro-container">
-                <div class="contents">
-                    <div data-aos="fade-up"data-aos-duration="3000"class="intro-txt">
-                        <h2>안녕하세요:)</h2>           
-                        <p>
-                            끊기있는
+                <div data-aos="fade-up" data-aos-duration="3000" class="contents">
+                    <div class="intro-txt">
+                        <h2>안녕하세요</h2>           
+                        <span>통</span>
+                        <span>통</span>
+                        <span>튀</span>
+                        <span>는⚽</span>
                             <br>
-                            웹디자이너 
-                            <br>
-                            조예린입니다.
-                        </p>
+                            <p>
+                                웹디자이너
+                                <br>
+                                조예린입니다.
+                                <br>
+                                👩
+                            </p>
                         <div class="scr-mouse">
                             <i class="fas fa-mouse">
                             </i>
@@ -716,6 +743,8 @@
             <div class="container footer-container">
                 <div class="footer-tit">
                     Contact me
+                    <br>
+                    💻
                 </div>
                 <address>
                     <p class="phone">Phone : 010-3233-5526</p>
